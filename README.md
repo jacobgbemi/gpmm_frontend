@@ -19,6 +19,19 @@ This branch establishes the project foundation only:
 
 No authentication, navigation shell, or feature screens are implemented in this phase.
 
+## Phase 02 — Design System and Reusable Components
+
+This phase adds:
+
+- Centralized brand, semantic colour, spacing, typography, radius, and border tokens.
+- Reusable buttons, content cards, badges, avatars, status indicators, and dividers.
+- Controlled text, multiline, selection, date, checkbox, and radio form controls.
+- Loading, empty, error, success, confirmation, and toast-equivalent feedback components.
+- Safe-area-aware screen containers, page/section headings, and a presentational navigation bar.
+- A local design-system preview at the root route. Its sample content is not connected to production APIs.
+
+The navigation bar is a UI primitive only. Expo Router route groups, authentication guards, and the complete application navigation shell remain in Phase 03.
+
 ## Prerequisites
 
 - Node.js 18+ (LTS recommended)
@@ -59,7 +72,7 @@ Then press `a` (Android), `i` (iOS), or scan the QR code with Expo Go.
 | `npm run typecheck`| TypeScript check               |
 | `npm test`         | Run Jest tests                 |
 
-## Project structure (Phase 01)
+## Project structure (through Phase 02)
 
 ```
 glintpm-mobile/
@@ -94,7 +107,7 @@ See `.env.example` for the documented variables.
 
 ## Next phase
 
-Phase 02 — Design system and reusable components.
+Phase 03 — Navigation and application structure.
 
 ## Documentation
 

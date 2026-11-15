@@ -1,7 +1,4 @@
-/**
- * Consistent spacing scale (in dp / points).
- */
-
+/** Consistent spacing scale in React Native density-independent points. */
 export const spacing = {
   none: 0,
   xxs: 2,
@@ -15,6 +12,7 @@ export const spacing = {
   '4xl': 40,
   '5xl': 48,
   '6xl': 64,
+  '7xl': 80,
 } as const;
 
 export type SpacingToken = keyof typeof spacing;

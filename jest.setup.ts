@@ -1,4 +1,2 @@
-import '@testing-library/jest-native/extend-expect';
-
-// Silence some noisy console warnings during tests if needed
-// jest.spyOn(console, 'warn').mockImplementation(() => {});
+// React Native Testing Library extends Jest matchers when imported by component tests.
+jest.setTimeout(20000);

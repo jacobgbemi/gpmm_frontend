@@ -31,7 +31,7 @@ export default function RootLayout() {
             name="index"
             options={{
               title: 'GlintPM',
-              headerShown: true,
+              headerShown: false,
             }}
           />
         </Stack>

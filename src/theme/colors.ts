@@ -1,37 +1,51 @@
 /**
  * GlintPM brand palette and semantic colours.
- * Source of truth: docs/ui-ux-guidelines.md and master prompt.
+ * Source of truth: docs/ui-ux-guidelines.md and master_development_prompt.md.
  */
-
 export const colors = {
   // Brand
   primary: '#085634', // Deep green
+  primaryPressed: '#064329',
+  primarySubtle: '#EAF3EE',
   gold: '#F3BA25',
+  goldPressed: '#DCA719',
+  goldSubtle: '#FFF7DF',
   cyan: '#1EC9DF',
+  cyanSubtle: '#E7FAFC',
 
   // Neutrals
   white: '#FFFFFF',
   black: '#000000',
   background: '#F7F9F8',
   surface: '#FFFFFF',
+  surfaceMuted: '#F1F5F2',
+  surfaceElevated: '#FFFFFF',
   border: '#E2E8E5',
+  borderStrong: '#C6D2CB',
+  borderFocus: '#0B7950',
 
   // Text
   textPrimary: '#0F1C17',
   textSecondary: '#4A5C54',
-  textMuted: '#7A8B83',
+  textMuted: '#687970',
+  textDisabled: '#8A9690',
   textOnPrimary: '#FFFFFF',
   textOnGold: '#0F1C17',
+  textOnCyan: '#0F1C17',
 
-  // Semantic
+  // Semantic foregrounds and backgrounds
   success: '#0F7B4A',
-  warning: '#D4A017',
+  successBackground: '#EAF6EF',
+  warning: '#8A5A00',
+  warningBackground: '#FFF7DF',
   error: '#C53030',
-  info: '#1EC9DF',
+  errorBackground: '#FDECEC',
+  info: '#0C7180',
+  infoBackground: '#E7FAFC',
 
   // States
-  disabled: '#A0AEC0',
-  overlay: 'rgba(15, 28, 23, 0.45)',
+  disabled: '#D9E0DC',
+  overlay: 'rgba(15, 28, 23, 0.48)',
 } as const;
 
 export type ColorToken = keyof typeof colors;

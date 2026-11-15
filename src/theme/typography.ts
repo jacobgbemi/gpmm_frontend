@@ -1,8 +1,4 @@
-/**
- * Typography tokens.
- * Keep readable and professional for project professionals.
- */
-
+/** Typography tokens for a readable, professional mobile experience. */
 export const typography = {
   fontFamily: {
     regular: 'System',
@@ -32,3 +28,18 @@ export const typography = {
     bold: '700' as const,
   },
 } as const;
+
+export const textVariants = {
+  display: { fontSize: 32, lineHeight: 39, fontWeight: '700' as const },
+  pageTitle: { fontSize: 28, lineHeight: 34, fontWeight: '700' as const },
+  sectionTitle: { fontSize: 20, lineHeight: 27, fontWeight: '600' as const },
+  cardTitle: { fontSize: 16, lineHeight: 23, fontWeight: '600' as const },
+  body: { fontSize: 16, lineHeight: 24, fontWeight: '400' as const },
+  bodySmall: { fontSize: 14, lineHeight: 21, fontWeight: '400' as const },
+  caption: { fontSize: 12, lineHeight: 18, fontWeight: '400' as const },
+  label: { fontSize: 14, lineHeight: 20, fontWeight: '600' as const },
+  button: { fontSize: 15, lineHeight: 20, fontWeight: '600' as const },
+  error: { fontSize: 12, lineHeight: 18, fontWeight: '500' as const },
+} as const;
+
+export type TextVariant = keyof typeof textVariants;
