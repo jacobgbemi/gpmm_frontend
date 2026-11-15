@@ -1,46 +1,63 @@
-# GlintPM Mobile App
+# GlintPM Frontend (gpmm_frontend)
 
-A cross-platform mobile application for GlintPM customers and learners.
+Cross-platform mobile app for GlintPM — training, career opportunities, resources, and support.
 
-## Product areas
-- Home Dashboard
-- Training Academy
-- Career Hub
-- Professional Resources
-- Job Support and Consulting
+**Stack:** React Native · Expo · TypeScript · Expo Router · TanStack Query · Axios
 
-## Technology direction
-- Mobile: React Native, Expo, TypeScript, Expo Router
-- Backend: Python, Django, Django REST Framework
-- Database: PostgreSQL
-- Server-state management: TanStack Query
-- HTTP client: Axios
-- Forms: React Hook Form and Zod
-- Secure local storage: Expo SecureStore
-- Internal administration: Django Admin (Django Unfold is preferred)
+## Phase 00 — Foundation
 
-## Repository structure
-```text
-glintpm-mobile-app/
-├── AGENTS.md
-├── README.md
-├── docs/
-└── frontend/
-```
+This branch delivers the project foundation only:
 
-The actual source folder names may differ if the repository has already been initialized. Do not restructure an existing project without approval.
+- Expo + TypeScript project
+- App identifiers and metadata
+- Environment configuration (`.env.example`)
+- Theme tokens (GlintPM palette)
+- Central API client foundation
+- Root layout with Expo Router + React Query
+- Feature-oriented folder structure
+- Lint / typecheck / test scripts
+
+Feature screens, design system components, and auth are implemented in later phases.
 
 ## Getting started
-1. Read `AGENTS.md`.
-2. Read `docs/README.md`.
-3. Review `docs/development-roadmap.md`.
-4. Configure the frontend and backend environments using their respective example environment files.
-5. Follow the setup instructions in `docs/deployment-guide.md` for local development.
 
-## Product scope
-The initial MVP covers authentication, learning, career opportunities, resources, support enquiries, payments/enrollment, notifications, and user profiles.
+```bash
+# Install dependencies
+npm install
 
-Primavera P6 XER analysis, DCMA schedule assessment, project assurance, and advanced project controls functionality are outside the initial MVP unless separately approved.
+# Copy environment example
+cp .env.example .env
+
+# Start Expo
+npx expo start
+```
+
+Then open in Expo Go, Android emulator, or iOS simulator.
+
+## Environment
+
+| Variable | Description |
+|---|---|
+| `EXPO_PUBLIC_API_BASE_URL` | Django API base, e.g. `http://localhost:8000/api/v1` |
+| `EXPO_PUBLIC_APP_ENV` | `development` \| `staging` \| `production` |
+
+`EXPO_PUBLIC_*` values are embedded in the client. Never put secrets in them.
+
+## Scripts
+
+| Command | Purpose |
+|---|---|
+| `npm start` | Start Expo dev server |
+| `npm run android` | Start with Android |
+| `npm run ios` | Start with iOS |
+| `npm run typecheck` | TypeScript check |
+| `npm run lint` | ESLint |
+| `npm test` | Jest |
 
 ## Documentation
-See `docs/README.md` for the documentation index.
+
+See the repository `docs/` folder and `AGENTS.md` for product, architecture, and phase instructions.
+
+## Branch
+
+`frontend-phase-00` (foundation). Do not push or merge without review and explicit approval per the master development workflow.
