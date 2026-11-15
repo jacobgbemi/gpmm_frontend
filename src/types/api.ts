@@ -1,6 +1,7 @@
 /**
- * Shared API types. Feature-specific contracts are added in later phases
- * once backend contracts are approved.
+ * Shared API types.
+ * Feature-specific contracts will be added in later phases
+ * according to docs/api-specification.md.
  */
 
 export type PaginatedResponse<T> = {
@@ -10,7 +11,8 @@ export type PaginatedResponse<T> = {
   results: T[];
 };
 
-export type HealthCheckResponse = {
+export type HealthResponse = {
   status: string;
-  service?: string;
+  version?: string;
+  timestamp?: string;
 };

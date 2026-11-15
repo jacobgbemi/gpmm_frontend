@@ -1,5 +1,11 @@
-/** Shared pure utilities. Expand as needed in later phases. */
+/**
+ * General utility helpers.
+ */
 
-export function assertNever(value: never): never {
-  throw new Error(`Unexpected value: ${String(value)}`);
+export function isNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+export function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

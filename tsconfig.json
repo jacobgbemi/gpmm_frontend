@@ -7,18 +7,27 @@
       "@/*": ["src/*"],
       "@/components/*": ["src/components/*"],
       "@/features/*": ["src/features/*"],
-      "@/services/*": ["src/services/*"],
+      "@/lib/*": ["src/lib/*"],
       "@/theme/*": ["src/theme/*"],
       "@/types/*": ["src/types/*"],
       "@/utils/*": ["src/utils/*"],
       "@/constants/*": ["src/constants/*"],
       "@/hooks/*": ["src/hooks/*"]
-    }
+    },
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

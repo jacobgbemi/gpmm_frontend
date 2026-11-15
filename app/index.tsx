@@ -1,42 +1,51 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, spacing, typography } from '@/theme';
-import { config } from '@/constants/config';
+import { colors } from '@/theme/colors';
+import { spacing } from '@/theme/spacing';
+import { typography } from '@/theme/typography';
+import { ENV } from '@/constants/env';
 
 /**
- * Foundation entry screen.
- * Confirms Expo + TypeScript + theme + env config are wired.
- * Feature screens replace this in later phases.
+ * Phase 01 foundation screen.
+ * Confirms the app boots, theme tokens load, and environment is readable.
+ * Feature screens and navigation shell arrive in later phases.
  */
-export default function IndexScreen() {
+export default function FoundationScreen() {
   return (
-    <SafeAreaView style={styles.safe} edges={['bottom']}>
-      <View style={styles.container}>
-        <View style={styles.badge}>
-          <Text style={styles.badgeText}>Phase 00</Text>
-        </View>
-
-        <Text style={styles.title}>GlintPM</Text>
-        <Text style={styles.subtitle}>
-          Professional training, career opportunities, and project support.
-        </Text>
-
+    <SafeAreaView style={styles.safe} edges={['bottom', 'left', 'right']}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Foundation ready</Text>
-          <Text style={styles.cardBody}>
-            Expo, TypeScript, Expo Router, theme tokens, environment config, and
-            the central API client are in place.
+          <Text style={styles.badge}>Phase 01</Text>
+          <Text style={styles.title}>GlintPM Mobile</Text>
+          <Text style={styles.subtitle}>Frontend foundation is ready</Text>
+
+          <View style={styles.divider} />
+
+          <Text style={styles.label}>Environment</Text>
+          <Text style={styles.value}>{ENV.APP_ENV}</Text>
+
+          <Text style={styles.label}>API Base URL</Text>
+          <Text style={styles.value} numberOfLines={2}>
+            {ENV.API_BASE_URL}
           </Text>
-          <Text style={styles.meta}>
-            API base: {config.apiBaseUrl}
+
+          <Text style={styles.label}>Debug</Text>
+          <Text style={styles.value}>{ENV.DEBUG ? 'Enabled' : 'Disabled'}</Text>
+
+          <View style={styles.divider} />
+
+          <Text style={styles.footer}>
+            Next: Design system & reusable components (Phase 02)
           </Text>
-          <Text style={styles.meta}>Env: {config.appEnv}</Text>
         </View>
 
-        <Text style={styles.footer}>
-          Shared Android & iOS codebase · React Native + Expo
-        </Text>
-      </View>
+        <View style={styles.paletteRow}>
+          <View style={[styles.swatch, { backgroundColor: colors.primary }]} />
+          <View style={[styles.swatch, { backgroundColor: colors.gold }]} />
+          <View style={[styles.swatch, { backgroundColor: colors.cyan }]} />
+        </View>
+        <Text style={styles.paletteLabel}>Brand palette</Text>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -47,68 +56,85 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   container: {
-    flex: 1,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.xl,
-    alignItems: 'center',
-  },
-  badge: {
-    backgroundColor: colors.gold,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-    borderRadius: 999,
-    marginBottom: spacing.md,
-  },
-  badgeText: {
-    color: colors.textOnGold,
-    fontSize: typography.size.sm,
-    fontWeight: '700',
-  },
-  title: {
-    fontSize: typography.size.display,
-    fontWeight: '700',
-    color: colors.primary,
-    marginBottom: spacing.sm,
-  },
-  subtitle: {
-    fontSize: typography.size.md,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: typography.size.md * typography.lineHeight.relaxed,
-    marginBottom: spacing.xl,
-    maxWidth: 320,
+    flexGrow: 1,
+    padding: spacing.lg,
+    justifyContent: 'center',
   },
   card: {
-    width: '100%',
-    maxWidth: 400,
     backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: spacing.lg,
+    borderRadius: 12,
+    padding: spacing['2xl'],
+    borderWidth: 1,
+    borderColor: colors.border,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  badge: {
+    alignSelf: 'flex-start',
+    backgroundColor: colors.primary,
+    color: colors.white,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.semiBold,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
+    borderRadius: 4,
+    overflow: 'hidden',
+    marginBottom: spacing.md,
+  },
+  title: {
+    fontSize: typography.fontSize['2xl'],
+    fontWeight: typography.fontWeight.bold,
+    color: colors.textPrimary,
+    marginBottom: spacing.xs,
+  },
+  subtitle: {
+    fontSize: typography.fontSize.md,
+    color: colors.textSecondary,
+    marginBottom: spacing.lg,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: colors.border,
+    marginVertical: spacing.lg,
+  },
+  label: {
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.medium,
+    color: colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    marginBottom: spacing.xxs,
+  },
+  value: {
+    fontSize: typography.fontSize.sm,
+    color: colors.textPrimary,
+    marginBottom: spacing.md,
+  },
+  footer: {
+    fontSize: typography.fontSize.sm,
+    color: colors.textSecondary,
+    textAlign: 'center',
+  },
+  paletteRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    marginTop: spacing['2xl'],
+  },
+  swatch: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
     borderWidth: 1,
     borderColor: colors.border,
   },
-  cardTitle: {
-    fontSize: typography.size.lg,
-    fontWeight: '600',
-    color: colors.textPrimary,
-    marginBottom: spacing.sm,
-  },
-  cardBody: {
-    fontSize: typography.size.md,
-    color: colors.textSecondary,
-    lineHeight: typography.size.md * typography.lineHeight.normal,
-    marginBottom: spacing.md,
-  },
-  meta: {
-    fontSize: typography.size.sm,
-    color: colors.textMuted,
-    marginTop: spacing.xs,
-  },
-  footer: {
-    marginTop: 'auto',
-    marginBottom: spacing.lg,
-    fontSize: typography.size.xs,
-    color: colors.textMuted,
+  paletteLabel: {
     textAlign: 'center',
+    marginTop: spacing.sm,
+    fontSize: typography.fontSize.xs,
+    color: colors.textMuted,
   },
 });

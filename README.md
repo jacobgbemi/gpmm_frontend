@@ -1,63 +1,101 @@
-# GlintPM Frontend (gpmm_frontend)
+# GlintPM Mobile App (Frontend)
 
-Cross-platform mobile app for GlintPM — training, career opportunities, resources, and support.
+Cross-platform mobile application for GlintPM customers and learners.
 
-**Stack:** React Native · Expo · TypeScript · Expo Router · TanStack Query · Axios
+**Stack:** React Native · Expo · TypeScript · Expo Router · TanStack Query · Axios · React Hook Form + Zod · Expo SecureStore
 
-## Phase 00 — Foundation
+## Phase 01 — Frontend Foundation
 
-This branch delivers the project foundation only:
+This branch establishes the project foundation only:
 
 - Expo + TypeScript project
-- App identifiers and metadata
+- App metadata (name, bundle IDs)
 - Environment configuration (`.env.example`)
-- Theme tokens (GlintPM palette)
-- Central API client foundation
-- Root layout with Expo Router + React Query
-- Feature-oriented folder structure
-- Lint / typecheck / test scripts
+- Central Axios API client
+- Theme tokens (brand palette)
+- Folder structure for features and shared code
+- ESLint, Prettier, Jest configuration
+- Minimal entry screen confirming startup
 
-Feature screens, design system components, and auth are implemented in later phases.
+No authentication, navigation shell, or feature screens are implemented in this phase.
 
-## Getting started
+## Prerequisites
+
+- Node.js 18+ (LTS recommended)
+- npm or yarn
+- Expo Go app (optional, for device testing)
+- Android Studio / Xcode for simulators (optional)
+
+## Setup
 
 ```bash
-# Install dependencies
+# 1. Install dependencies
 npm install
 
-# Copy environment example
+# 2. Align native modules with the Expo SDK (important)
+npx expo install --fix
+
+# 3. Copy environment file
 cp .env.example .env
 
-# Start Expo
-npx expo start
+# 4. Start the development server
+npm start
 ```
 
-Then open in Expo Go, Android emulator, or iOS simulator.
+Then press `a` (Android), `i` (iOS), or scan the QR code with Expo Go.
 
-## Environment
-
-| Variable | Description |
-|---|---|
-| `EXPO_PUBLIC_API_BASE_URL` | Django API base, e.g. `http://localhost:8000/api/v1` |
-| `EXPO_PUBLIC_APP_ENV` | `development` \| `staging` \| `production` |
-
-`EXPO_PUBLIC_*` values are embedded in the client. Never put secrets in them.
+> **Target:** Expo SDK 52 · React 18.3.1 · React Native 0.76.x  
+> Unit-test libraries were intentionally omitted in Phase 01 to avoid peer-dependency conflicts. They will be added in a later phase with compatible versions.
 
 ## Scripts
 
-| Command | Purpose |
-|---|---|
-| `npm start` | Start Expo dev server |
-| `npm run android` | Start with Android |
-| `npm run ios` | Start with iOS |
-| `npm run typecheck` | TypeScript check |
-| `npm run lint` | ESLint |
-| `npm test` | Jest |
+| Command            | Description                    |
+|--------------------|--------------------------------|
+| `npm start`        | Start Expo dev server          |
+| `npm run android`  | Open on Android                |
+| `npm run ios`      | Open on iOS                    |
+| `npm run lint`     | Run ESLint                     |
+| `npm run format`   | Format with Prettier           |
+| `npm run typecheck`| TypeScript check               |
+| `npm test`         | Run Jest tests                 |
+
+## Project structure (Phase 01)
+
+```
+glintpm-mobile/
+├── app/                    # Expo Router entry points
+│   ├── _layout.tsx
+│   └── index.tsx
+├── src/
+│   ├── components/         # Shared UI (common, forms, layout)
+│   ├── features/           # Feature modules (auth, dashboard, …)
+│   ├── lib/
+│   │   ├── api/            # Axios client & helpers
+│   │   └── storage/        # SecureStore wrappers
+│   ├── theme/              # Colors, spacing, typography
+│   ├── constants/          # Env and static config
+│   ├── types/
+│   ├── hooks/
+│   ├── utils/
+│   └── ...
+├── assets/
+├── .env.example
+├── app.json
+├── package.json
+└── tsconfig.json
+```
+
+## Environment variables
+
+Only `EXPO_PUBLIC_*` variables are embedded in the client bundle.  
+Never put backend secrets, payment keys, or private credentials in the mobile app.
+
+See `.env.example` for the documented variables.
+
+## Next phase
+
+Phase 02 — Design system and reusable components.
 
 ## Documentation
 
-See the repository `docs/` folder and `AGENTS.md` for product, architecture, and phase instructions.
-
-## Branch
-
-`frontend-phase-00` (foundation). Do not push or merge without review and explicit approval per the master development workflow.
+Project documentation lives in the repository `docs/` folder (product requirements, architecture, API contracts, phase files, etc.).

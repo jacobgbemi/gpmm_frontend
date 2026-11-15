@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "GlintPM",
-    "slug": "gpmm-frontend",
-    "version": "0.1.0",
+    "slug": "glintpm-mobile",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "glintpm",
@@ -15,15 +15,16 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.glintpm.app"
+      "bundleIdentifier": "com.glintpm.mobile",
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#085634"
       },
-      "package": "com.glintpm.app",
-      "edgeToEdgeEnabled": true
+      "package": "com.glintpm.mobile",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
@@ -32,8 +33,7 @@
     },
     "plugins": [
       "expo-router",
-      "expo-secure-store",
-      "expo-status-bar"
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
@@ -43,7 +43,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "replace-with-eas-project-id"
+        "projectId": "glintpm-mobile-placeholder"
       }
     }
   }
