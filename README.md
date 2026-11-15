@@ -25,8 +25,7 @@ glintpm-mobile-app/
 ├── AGENTS.md
 ├── README.md
 ├── docs/
-├── mobile/
-└── backend/
+└── frontend/
 ```
 
 The actual source folder names may differ if the repository has already been initialized. Do not restructure an existing project without approval.

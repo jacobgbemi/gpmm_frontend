@@ -12,8 +12,8 @@ Do not begin implementation until you have reviewed the documentation and confir
 
 Use these repositories as the source of truth:
 
-- **Backend repository:** `[INSERT BACKEND GITHUB REPOSITORY URL]`
-- **Frontend repository:** `[INSERT FRONTEND GITHUB REPOSITORY URL]`
+- **Backend repository:** `https://github.com/jacobgbemi/gpmm_backend`
+- **Frontend repository:** `https://github.com/jacobgbemi/gpmm_frontend`
 
 Inspect both repositories independently. Do not assume documentation from one repository is present in the other.
 
